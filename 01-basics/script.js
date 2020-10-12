@@ -1,10 +1,11 @@
-var userName = "Johan";
-userName = "Pelle";
+let userName = "Petra";
+let studentName = "Alicia Andersson";
 
-let helloMsg = "Hello, Variable World!";
-let studentName = "Pelle Persson";
-studentName = "Per Persson";
+userName = "Edwin";
 
-const pi = 3.14;
-pi = 2.54;
-alert(pi);
+let helloMsg = "Hello " + userName + ", your next student is " + studentName;
+
+userName = "Peter";
+
+// alert(helloMsg + " " + userName + ", your next student is " + studentName);
+alert(helloMsg);
