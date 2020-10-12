@@ -1,4 +1,4 @@
-let name = "Bengt-Olof";
+let name = "Alicia";
 
 console.log("Name is:", name);
 console.log("Length of name:", name.length);
@@ -29,3 +29,6 @@ console.log("PIZZA?", pizza_slice);
 
 let tinyName = name.substr(3, 5);
 console.log("tinyName:", tinyName);
+
+let email = "pelle";
+console.log("does the email contain an at-char?", email.includes('@'));
