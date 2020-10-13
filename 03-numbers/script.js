@@ -40,6 +40,7 @@ console.log("points:", points); // 11
 console.log("result", result); // 11
 */
 
+/*
 let points = 20;
 points++; // 21
 points--; // 20
@@ -55,3 +56,16 @@ points *= 4; // 100
 
 // points = points / 2; // 50
 points /= 2; // 50
+*/
+
+console.log(10 / 2);
+console.log(5 + " points");
+console.log("Likes: " + 2);
+
+console.log("Posts" - 5); // NaN
+
+console.log("YOLO" * 5); // NaN
+
+console.log("FTW" / 2); // ???? NaN
+
+console.log("YAS!" + 2); // "YAS!2"
