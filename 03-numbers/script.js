@@ -32,8 +32,26 @@ laps--; // 5
 console.log(laps);
 */
 
+/*
 let points = 10;
 let result = ++points;
 
 console.log("points:", points); // 11
 console.log("result", result); // 11
+*/
+
+let points = 20;
+points++; // 21
+points--; // 20
+
+// points = points + 10; // 30
+points += 10; // 30
+
+// points = points - 5; // 25
+points -= 5; // 25
+
+// points = points * 4; // 100
+points *= 4; // 100
+
+// points = points / 2; // 50
+points /= 2; // 50
