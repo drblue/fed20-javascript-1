@@ -78,9 +78,19 @@ for (let i = 20; i > 0; i--) {
 }
 */
 
-let i = 0;
+/*
+let i = 10;
 while (i < 10) {
 	// do stuff
 	console.log(`At while-loop iteration ${i}`);
 	i++;
 }
+*/
+
+let i = 10;
+do {
+	console.log(`At do-while-loop iteration, i is: ${i}`);
+	i++;
+} while (i < 10);
+
+console.log("<end>");
