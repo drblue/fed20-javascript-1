@@ -87,6 +87,7 @@ while (i < 10) {
 }
 */
 
+/*
 let i = 10;
 do {
 	console.log(`At do-while-loop iteration, i is: ${i}`);
@@ -94,3 +95,39 @@ do {
 } while (i < 10);
 
 console.log("<end>");
+*/
+
+/*
+if (grade == 'VG') {
+	console.log("🥳 Nice!! You got a VG");
+} else if (grade == 'G') {
+	console.log("🆗 Excellent! You got a G");
+} else if (grade == 'IG') {
+	console.log("😔 Sorry, you got a IG");
+} else if (grade == '-') {
+	console.log("🥺 You didn't get a grade at all");
+}
+*/
+
+let grade = 'G';
+switch (grade) {
+	case 'VG':
+		console.log("🥳 Nice!! You got a VG");
+		break;
+
+	case 'G':
+		console.log("🆗 Excellent! You got a G");
+		break;
+
+	case 'IG':
+		console.log("😔 Sorry, you got a IG");
+		break;
+
+	case '-':
+		console.log("🥺 You didn't get a grade at all");
+		break;
+
+	default:
+		console.log("😡 Why you try 🐅 cheating?!");
+		break;
+}
