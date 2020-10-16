@@ -1,3 +1,4 @@
+/*
 let minAge = 18;
 let maxAge = 50;
 let age = 30;
@@ -15,3 +16,16 @@ console.log(name == "Johan"); // "Johan" == "Johan" // true
 
 console.log(name == "Peter"); // "Johan" == "Peter" // false
 console.log(name != "Peter"); // "Johan" != "Peter" // true
+*/
+
+let isLoggedIn = false;
+/*
+if (isLoggedIn) {
+	// all ok
+} else {
+	console.log("You need to log in.");
+}
+*/
+if (!isLoggedIn) {
+	console.log("You need to log in.");
+}
