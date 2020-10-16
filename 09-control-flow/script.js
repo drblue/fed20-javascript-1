@@ -35,6 +35,7 @@ for (let i = 1; i < 5; i++) {
 console.log("after loop");
 */
 
+/*
 let students = [
 	"Spider-Man",    // 0
 	"Iron Man",      // 1
@@ -51,4 +52,20 @@ if (students.length > 5) {
 	}
 } else {
 	console.log("Too few students to start Avengers.");
+}
+*/
+
+for (let i = 1; i < 20; i++) {
+	// check if i is an even number
+	if (i % 2 == 0) {
+		// it was, skip the rest of the execution of this iteration
+		continue;
+	}
+
+	console.log("at loop iteration:", i);
+	// check if i is equal to 11
+	if (i == 11) {
+		// it was, break out of the loop (i.e., stop the whole iteration)
+		break;
+	}
 }

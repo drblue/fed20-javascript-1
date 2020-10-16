@@ -5,8 +5,8 @@
  */
 
 let password;
-password = "password"; // inte giltigt
-// password = "p@ssword"; // giltigt
+// password = "password"; // inte giltigt
+password = "p@ssword"; // giltigt
 // password = "pa$$word"; // giltigt
 // password = "secretpassword"; // inte giltigt
 // password = "secret-password"; // giltigt
@@ -23,6 +23,7 @@ for (let i = 0; i < specialChars.length; i++) {
 	if (password.includes(specialChars[i])) {
 		// yep, it did. set status variable to true!
 		passwordHasSpecialChar = true;
+		break;
 	}
 }
 
