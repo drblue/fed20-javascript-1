@@ -55,6 +55,7 @@ if (students.length > 5) {
 }
 */
 
+/*
 for (let i = 1; i < 20; i++) {
 	// check if i is an even number
 	if (i % 2 == 0) {
@@ -68,4 +69,18 @@ for (let i = 1; i < 20; i++) {
 		// it was, break out of the loop (i.e., stop the whole iteration)
 		break;
 	}
+}
+*/
+
+/*
+for (let i = 20; i > 0; i--) {
+	console.log(`At iteration ${i}`);
+}
+*/
+
+let i = 0;
+while (i < 10) {
+	// do stuff
+	console.log(`At while-loop iteration ${i}`);
+	i++;
 }
