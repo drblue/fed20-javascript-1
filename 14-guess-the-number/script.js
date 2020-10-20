@@ -39,6 +39,7 @@ const getRandomNumber = function(max = 10) {
 }
 
 let numberToGuess = getRandomNumber();
+let guesses = 0;
 let cheatMode = true;
 let continueGame = true;
 
@@ -48,15 +49,19 @@ if (cheatMode) {
 
 while (continueGame) {
 	let guessedNumber = Number(prompt("Please enter your guess"));
+	guesses++;
 
 	if (guessedNumber === numberToGuess) {
-		alert("🥳");
+		alert(`🥳! Du gissade rätt på ${guesses} försök`);
 		continueGame = false;
+
 	} else if (guessedNumber === 0) {
 		alert("Fegis");
 		continueGame = false;
+
 	} else if (guessedNumber > numberToGuess) {
 		alert("OJ det där var för högt gissat! 😳");
+
 	} else if (guessedNumber < numberToGuess) {
 		alert("Det där var lågt! Men inte lika lågt som GlocalNet!");
 	}
