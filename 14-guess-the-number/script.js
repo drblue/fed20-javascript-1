@@ -27,14 +27,24 @@
  * Om användaren gissar rätt på färre gånger, visa "YAY NEW HIGHSCORE! ${highscore}"
  */
 
-/*
 const getRandomNumber = function(max = 10) {
+	/*
+	const random = Math.random();
+	const randomMultiplied = random * max;
+	const randomRoundedNumber = Math.ceil(randomMultiplied);
+	return randomRoundedNumber;
+	*/
+
 	return Math.ceil(Math.random() * max);
 }
-*/
 
-let numberToGuess = 7;
+let numberToGuess = getRandomNumber();
+let cheatMode = true;
 let continueGame = true;
+
+if (cheatMode) {
+	console.log("numberToGuess:", numberToGuess);
+}
 
 while (continueGame) {
 	let guessedNumber = Number(prompt("Please enter your guess"));
