@@ -45,7 +45,9 @@ while (continueGame) {
 	} else if (guessedNumber === 0) {
 		alert("Fegis");
 		continueGame = false;
-	} else {
-		alert("Det där var ju inte rätt..");
+	} else if (guessedNumber > numberToGuess) {
+		alert("OJ det där var för högt gissat! 😳");
+	} else if (guessedNumber < numberToGuess) {
+		alert("Det där var lågt! Men inte lika lågt som GlocalNet!");
 	}
 }
