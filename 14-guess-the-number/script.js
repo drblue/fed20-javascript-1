@@ -56,7 +56,11 @@ while (!exitGame) {    // exitGame = true        !true == false
 		guesses++;
 
 		if (guessedNumber === numberToGuess) {
-			if (highscore === null || guesses < highscore) {
+			if (highscore === null) {
+				alert(`🥳! Du gissade rätt på ${guesses} försök!`);
+				highscore = guesses;
+
+			} else if (guesses < highscore) {
 				alert(`YAY NEW HIGHSCORE! 🥳! Du gissade rätt på ${guesses} försök och din gamla highscore var ${highscore}!`);
 				highscore = guesses;
 			} else {
