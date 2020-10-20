@@ -15,7 +15,7 @@ const logMsg = function(msg) {  // msg = "Hello Bull, nice to meet you!"
 }
 
 // Function Expression
-const alertMsgExp = function() {
+const alertMsgExp = function(msg) {
 	alert(`ALERT!: ${msg}`);
 }
 
@@ -57,8 +57,17 @@ speak("Johan", msg => {  // msg = "Hello Johan, nice to meet you!"
 // 	return radius ** 2 * Math.PI;
 // }
 const calcArea = radius => radius ** 2 * Math.PI;   // one-line (arrow) function
-const logArea = (msg, area) => console.log(msg, area);
 
-logArea("Area of circle with radius 10 is", calcArea(10));
-logArea("Area of circle with radius 42 is", calcArea(42));
-logArea("Area of circle with radius 1337 is", calcArea(1337));
+const logAreaExp = function(msg, area) {
+	console.log(msg, area);
+}
+
+const logAreaArrow = (msg, area) => {
+	console.log(msg, area);
+}
+
+const logAreaOneLine = (msg, area) => console.log(msg, area);
+
+logAreaOneLine("Area of circle with radius 10 is", calcArea(10));
+logAreaOneLine("Area of circle with radius 42 is", calcArea(42));
+logAreaOneLine("Area of circle with radius 1337 is", calcArea(1337));
