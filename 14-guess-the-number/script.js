@@ -40,6 +40,7 @@ const getRandomNumber = function(max = 10) {
 
 let exitGame = false;
 let cheatMode = true;
+let highscore = null;
 
 while (!exitGame) {    // exitGame = true        !true == false
 	let numberToGuess = getRandomNumber();
@@ -55,7 +56,12 @@ while (!exitGame) {    // exitGame = true        !true == false
 		guesses++;
 
 		if (guessedNumber === numberToGuess) {
-			alert(`🥳! Du gissade rätt på ${guesses} försök`);
+			if (highscore === null || guesses < highscore) {
+				alert(`YAY NEW HIGHSCORE! 🥳! Du gissade rätt på ${guesses} försök och din gamla highscore var ${highscore}!`);
+				highscore = guesses;
+			} else {
+				alert(`🥳 Du gissade rätt på ${guesses} försök men det blev ingen ny highscore den här gången tyvärr! Din highscore är ${highscore}`);
+			}
 			continueGame = false;
 
 		} else if (guessedNumber === 0) {
