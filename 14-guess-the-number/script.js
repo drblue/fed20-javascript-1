@@ -27,11 +27,25 @@
  * Om användaren gissar rätt på färre gånger, visa "YAY NEW HIGHSCORE! ${highscore}"
  */
 
+/*
 const getRandomNumber = function(max = 10) {
 	return Math.ceil(Math.random() * max);
 }
+*/
 
-let numberToGuess = 42;
+let numberToGuess = 7;
+let continueGame = true;
 
-const name = prompt("Please enter your name");
-console.log("Your name is", name);
+while (continueGame) {
+	let guessedNumber = Number(prompt("Please enter your guess"));
+
+	if (guessedNumber === numberToGuess) {
+		alert("🥳");
+		continueGame = false;
+	} else if (guessedNumber === 0) {
+		alert("Fegis");
+		continueGame = false;
+	} else {
+		alert("Det där var ju inte rätt..");
+	}
+}
