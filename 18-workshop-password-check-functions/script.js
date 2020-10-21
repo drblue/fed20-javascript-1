@@ -32,17 +32,6 @@
  *
  */
 
-let passwords = [
-	"password", // osäker
-	"p@ssword", // säker
-	"pa$$word", // säker
-	"secretpassword", // osäker
-	"secret-password", // säker
-	"such-password-much-secure-very-long" // säker
-];
-
-// let password = passwords[1];
-
 const isPasswordSecure = function(password) {
 	const specialChars = [
 		"@", "$", "%", "*", "^", "<", ">", "?", "!", "(", ")", "[", "]", "{", "}", "'"
@@ -77,13 +66,22 @@ const isPasswordSecure = function(password) {
 // isPasswordSecure("secret");
 // isPasswordSecure("secret-password");
 
-passwords.forEach(password => {
-	const result = isPasswordSecure(password);
+let passwords = [
+	"secret", // osäker
+	"p@ssword", // säker
+	"pa$$word", // säker
+	"secretpassword", // osäker
+	"secret-password", // säker
+	"such-password-much-secure-very-long" // säker
+];
+
+passwords.forEach((item, index) => {
+	console.log("Inside forEach-loop", index, item);
+
+	const result = isPasswordSecure(item);
 	if (result) {
-		console.log(`🔐 Password '${password}' is secure`);
+		console.log(`🔐 Password '${item}' is secure`);
 	} else {
-		console.log(`🚨 Password '${password}' is *NOT* secure`);
+		console.log(`🚨 Password '${item}' is *NOT* secure`);
 	}
 });
-
-// passwords.forEach(isPasswordSecure);
