@@ -5,3 +5,7 @@ p.error {
 div.error {
 	color: red;
 }
+
+span.secret {
+	/* display: none; */
+}

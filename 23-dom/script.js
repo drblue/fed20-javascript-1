@@ -3,32 +3,13 @@
  *
  */
 
-// get by ID
-let firstLink = document.getElementById('link-1');
-console.log(firstLink);
+// document.querySelectorAll('p').forEach(paragraph => {
+// 	console.log("Hello I am a paragraph:", paragraph);
+// 	console.log("innerText:", paragraph.innerText);
+// 	console.log("innerHTML:", paragraph.innerHTML);
+// });
 
-/*
- * getElementsByClassName and getElementsByTagName returns a
- * HTMLCollection which does NOT have a .forEach()-method
- */
-
-// get by classname
-let errors = document.getElementsByClassName('error');
-console.log(errors);
-
-// get by tag
-let paragraphs = document.getElementsByTagName('p');
-console.log(paragraphs);
-
-
-/*
- * querySelectorAll returns a NodeList which DOES have a
- * .forEach()-method
- */
-
-let links = document.querySelectorAll('a');
-console.log(links);
-
-links.forEach((item) => {
-	console.log(item);
-});
+const errorDiv = document.querySelector('div.error');
+console.log("errorDiv innerHTML:", errorDiv.innerHTML);
+console.log("errorDiv innerText:", errorDiv.innerText);
+console.log("errorDiv textContent:", errorDiv.textContent);
