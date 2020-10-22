@@ -3,22 +3,14 @@
  *
  */
 
-// document.querySelectorAll('p').forEach(paragraph => {
-// 	console.log("Hello I am a paragraph:", paragraph);
-// 	console.log("innerText:", paragraph.innerText);
-// 	console.log("innerHTML:", paragraph.innerHTML);
-// });
+// const errorDiv = document.querySelector('div.error');
+const firstLink = document.querySelector('#link-1');
+console.log("firstLink href:", firstLink.getAttribute('href'));
 
-const errorDiv = document.querySelector('div.error');
+const image = document.querySelector('img');
+console.log("image src:", image.getAttribute('src'));
+console.log("image alt:", image.getAttribute('alt'));
+console.log("image class:", image.getAttribute('class'));
 
-// innerHTML retrieves the content inside the element,
-// *INCLUDING* HTML-child-elements and whitespaces
-console.log("errorDiv innerHTML:", errorDiv.innerHTML);
-
-// innerText retrieves ONLY the *VISIBLE* text inside the element and
-// ALL text from child elements, and removes any whitespaces
-console.log("errorDiv innerText:", errorDiv.innerText);
-
-// textContent retrives ALL text from inside the element and ALL text
-// from child elements, including whitespaces
-console.log("errorDiv textContent:", errorDiv.textContent);
+// change image src
+image.setAttribute('src', 'https://i.imgur.com/FcBXQKk.jpeg');
