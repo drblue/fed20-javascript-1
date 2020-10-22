@@ -3,14 +3,16 @@
  *
  */
 
-// const errorDiv = document.querySelector('div.error');
-const firstLink = document.querySelector('#link-1');
-console.log("firstLink href:", firstLink.getAttribute('href'));
+const alertDiv = document.querySelector('div.alert');
 
-const image = document.querySelector('img');
-console.log("image src:", image.getAttribute('src'));
-console.log("image alt:", image.getAttribute('alt'));
-console.log("image class:", image.getAttribute('class'));
+// get an elements classes
+console.log(alertDiv.classList);
 
-// change image src
-image.setAttribute('src', 'https://i.imgur.com/FcBXQKk.jpeg');
+// add a class to an element
+alertDiv.classList.add("error");
+
+// remove a class from an element
+alertDiv.classList.remove("error");
+
+// toggle a class on/off on an element
+alertDiv.classList.toggle("error");
