@@ -16,27 +16,15 @@ const barksby = {
 		console.log(`Hello, my name is ${this.name} and I'm a ${this.species} and I am ${this.age} years old.`);
 		// console.log("this inside about method:", this);
 		console.log("Age:", this.age);
-	}
-}
-
-// this = Window
-barksby.about();
-
-const fluffles = {
-	name: "Mr Fluffles", // key-value pair
-	species: "Unknown",
-	age: 3,
-	owner: "Peter",
-	hobbies: "Annoy people",
-	speak: function() {
-		console.log("MEOW!!!!");
 	},
-	about: function() {
-		console.log(`Hello, my name is ${this.name} and I'm a ${this.species} and I am ${this.age} years old.`);
-		// console.log("this inside fluffles-object:", this);
-		console.log("Age:", this.age);
-	}
 }
-fluffles.about();
 
-// console.log("this outside of any object:", this); // Window
+const increaseAge = pet => {
+	console.log("inside increaseAge, before:", pet);
+	pet.age++;
+	console.log("inside increaseAge, after:", pet);
+}
+
+console.log("Barksby age before:", barksby.age);
+increaseAge(barksby);
+console.log("Barksby age after:", barksby.age);
