@@ -15,6 +15,9 @@
  *
  */
 
+const btnCheckPasswordEl = document.querySelector('#btnCheckPassword');
+const inputPasswordEl = document.querySelector('#inputPassword');
+
 const isPasswordSecure = function(password) {
 	const specialChars = [
 		"@", "$", "%", "*", "^", "<", ">", "?", "!", "(", ")", "[", "]", "{", "}", "'"
@@ -45,28 +48,15 @@ const isPasswordSecure = function(password) {
 	}
 }
 
-// isPasswordSecure("password");
-// isPasswordSecure("secret");
-// isPasswordSecure("secret-password");
+// react to the event of a user clicking on the btnCheckPassword-button
+// or: ON the btnCheckPassword-button, react to the EVENT of a CLICK
+btnCheckPasswordEl.addEventListener('click', () => {
+	const inputPassword = inputPasswordEl.value;
 
-/*
-let passwords = [
-	"secret", // osäker
-	"p@ssword", // säker
-	"pa$$word", // säker
-	"secretpassword", // osäker
-	"secret-password", // säker
-	"such-password-much-secure-very-long" // säker
-];
-
-passwords.forEach((item, index) => {
-	console.log("Inside forEach-loop", index, item);
-
-	const result = isPasswordSecure(item);
-	if (result) {
-		console.log(`🔐 Password '${item}' is secure`);
+	const secure = isPasswordSecure(inputPassword);
+	if (secure) {
+		alert(`✅ The password "${inputPassword}" is secure!`);
 	} else {
-		console.log(`🚨 Password '${item}' is *NOT* secure`);
+		alert(`🚨 The password "${inputPassword}" is NOT secure!`);
 	}
 });
-*/
