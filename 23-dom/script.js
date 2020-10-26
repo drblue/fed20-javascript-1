@@ -3,16 +3,19 @@
  *
  */
 
-const alertDiv = document.querySelector('div.alert');
+const firstLink = document.querySelector('#link-1');
+const firstLinkParent = firstLink.parentElement;
 
-// get an elements classes
-console.log(alertDiv.classList);
+const firstParagraph = document.querySelector('.content p');
+console.log("First paragraph:", firstParagraph);
+console.log("First paragraphs parent is:", firstParagraph.parentElement);
+console.log("First paragraphs next sibling is:", firstParagraph.nextElementSibling);
+console.log("First paragraphs prev sibling is:", firstParagraph.previousElementSibling);
 
-// add a class to an element
-alertDiv.classList.add("error");
+const content = document.querySelector('.content');
+const contentParagraphs = content.querySelectorAll('p');
+console.log("content paragraphs:", contentParagraphs);
 
-// remove a class from an element
-alertDiv.classList.remove("error");
-
-// toggle a class on/off on an element
-alertDiv.classList.toggle("error");
+// Array.from(content.children).forEach(child => {
+// 	console.log("child:", child);
+// })
