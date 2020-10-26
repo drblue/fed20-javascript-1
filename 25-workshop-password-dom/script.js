@@ -17,6 +17,7 @@
 
 const btnCheckPasswordEl = document.querySelector('#btnCheckPassword');
 const inputPasswordEl = document.querySelector('#inputPassword');
+const statusEl = document.querySelector('#status');
 
 const isPasswordSecure = function(password) {
 	const specialChars = [
@@ -55,8 +56,13 @@ btnCheckPasswordEl.addEventListener('click', () => {
 
 	const secure = isPasswordSecure(inputPassword);
 	if (secure) {
-		alert(`✅ The password "${inputPassword}" is secure!`);
+		// alert(`✅ The password "${inputPassword}" is secure!`);
+		statusEl.innerHTML = `<div class="alert alert-success">The password "${inputPassword}" is secure!</div>`;
 	} else {
-		alert(`🚨 The password "${inputPassword}" is NOT secure!`);
+		// alert(`🚨 The password "${inputPassword}" is NOT secure!`);
+		statusEl.innerHTML = `<div class="alert alert-danger">The password "${inputPassword}" is <strong>NOT</strong> secure!</div>`;
 	}
+
+	// empty input field after we've checked the password
+	inputPasswordEl.value = "";
 });
