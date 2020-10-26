@@ -55,6 +55,21 @@ btnCheckPasswordEl.addEventListener('click', () => {
 	const inputPassword = inputPasswordEl.value;
 
 	const secure = isPasswordSecure(inputPassword);
+
+	const alertDiv = document.createElement("div");
+	alertDiv.classList.add("alert");
+	if (secure) {
+		alertDiv.innerHTML = `The password "${inputPassword}" is secure!`;
+		alertDiv.classList.add("alert-success");
+	} else {
+		alertDiv.innerHTML = `The password "${inputPassword}" is <strong>NOT</strong> secure!`;
+		alertDiv.classList.add("alert-danger");
+	}
+
+	// append alertDiv to `#status`
+	statusEl.prepend(alertDiv);
+
+	/*
 	if (secure) {
 		// alert(`✅ The password "${inputPassword}" is secure!`);
 		statusEl.innerHTML = `<div class="alert alert-success">The password "${inputPassword}" is secure!</div>`;
@@ -62,6 +77,7 @@ btnCheckPasswordEl.addEventListener('click', () => {
 		// alert(`🚨 The password "${inputPassword}" is NOT secure!`);
 		statusEl.innerHTML = `<div class="alert alert-danger">The password "${inputPassword}" is <strong>NOT</strong> secure!</div>`;
 	}
+	*/
 
 	// empty input field after we've checked the password
 	inputPasswordEl.value = "";
