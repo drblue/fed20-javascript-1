@@ -3,3 +3,7 @@
 	color: #888;
 	text-decoration: line-through;
 }
+
+.hide {
+	display: none;
+}

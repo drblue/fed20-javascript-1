@@ -21,7 +21,7 @@
  * tags dem bort?
  */
 
-const newTodoButtonEl = document.querySelector('#new-todo-button');
+const newTodoFormEl = document.querySelector('#new-todo-form');
 const todosEl = document.querySelector('#todos');
 const newTodoDescriptionEl = document.querySelector('#new-todo-description');
 
@@ -37,8 +37,11 @@ todosEl.addEventListener('click', e => {
 	}
 });
 
-// handle user clicking on "New Todo" button
-newTodoButtonEl.addEventListener('click', () => {
+// handle user submitting the "New Todo" form
+newTodoFormEl.addEventListener('submit', e => {
+	// stop form from being submitted to the server, i.e. stop its default action
+	e.preventDefault();
+
 	// get description of new todo from input-field
 	const todoDescription = newTodoDescriptionEl.value;
 
@@ -54,4 +57,9 @@ newTodoButtonEl.addEventListener('click', () => {
 	newTodoDescriptionEl.value = "";
 
 	// PROFIT! 💰
+});
+
+// handle user resetting the "New Todo" form
+newTodoFormEl.addEventListener('reset', e => {
+	document.querySelector('img').classList.remove('hide');
 });

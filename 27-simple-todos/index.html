@@ -22,11 +22,16 @@
 		<h2 class="mb-3">Create a new Todo</h2>
 		<form id="new-todo-form">
 			<div class="form-group">
-				<input type="text" id="new-todo-description" class="form-control" placeholder="Enter a description of your new todo...">
+				<input type="text" id="new-todo-description" name="description" class="form-control" placeholder="Enter a description of your new todo...">
 			</div>
+
+			<button type="submit" class="btn btn-success">Create</button>
+			<button type="reset" class="btn btn-danger">Reset</button>
 		</form>
 
-		<button id="new-todo-button" class="btn btn-primary">Create New Todo</button>
+		<img src="https://media1.tenor.com/images/86049d77fd5bd71c8ea5ba99470be7df/tenor.gif?itemid=8607749" class="img-fluid hide">
+
+		<!-- <button class="btn btn-primary">Create New Todo</button> -->
 	</div>
 
 	<script src="todos.js"></script>
