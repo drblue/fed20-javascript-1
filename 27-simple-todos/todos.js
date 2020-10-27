@@ -24,6 +24,26 @@
 const newTodoButtonEl = document.querySelector('#new-todo-button');
 const todosEl = document.querySelector('#todos');
 
+// add click listener to the actual list, and check if the clicked target is
+// a list-item, and only then remove it
+todosEl.addEventListener('click', e => {
+	if (e.target.tagName === "LI") {
+		// user clicked on a list-item, so remove it
+		e.target.remove();
+	}
+});
+
+/*
+// add click listener to each todo list-item
+// for deleting it
+document.querySelectorAll('li').forEach(todo => {
+	todo.addEventListener('click', e => {
+		e.target.remove();
+	});
+});
+*/
+
+// handle user clicking on "New Todo" button
 newTodoButtonEl.addEventListener('click', () => {
 	// prompt user for description of new todo
 	const todoDescription = prompt('What needs to be done?');
