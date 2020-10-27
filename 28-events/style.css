@@ -1,0 +1,24 @@
+#box-click,
+#box-pointer,
+#box-touch {
+	background-color: #ccc;
+	font-size: 2rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	height: 400px;
+	width: 400px;
+}
+
+footer {
+	margin-top: 800px;
+	padding: 2rem 3rem;
+	text-align: center;
+}
+
+.alert.hide {
+	display: none;
+}
