@@ -25,6 +25,22 @@ const newTodoFormEl = document.querySelector('#new-todo-form');
 const todosEl = document.querySelector('#todos');
 const newTodoDescriptionEl = document.querySelector('#new-todo-description');
 
+const todos = [
+	"Code",
+	"Sleep",
+	"Repeat"
+];
+
+const renderTodos = () => {
+	// empty HTML list of todos
+	todosEl.innerHTML = "";
+
+	// loop over each todo and create a list-item for each todo, and add them to the HTML list
+	todos.forEach(todo => {
+		todosEl.innerHTML += `<li class="todo list-group-item">${todo} <button class="btn btn-danger btn-sm">X</button></li>`;
+	});
+}
+
 // add click listener to the actual list, and check if the clicked target is
 // a list-item, and only then remove it
 todosEl.addEventListener('click', e => {
@@ -50,8 +66,11 @@ newTodoFormEl.addEventListener('submit', e => {
 		return;
 	}
 
-	// create new todo list-item and add it to list of todos
-	todosEl.innerHTML += `<li class="todo list-group-item">${todoDescription} <button class="btn btn-danger btn-sm">X</button></li>`;
+	// add todo to (array-)list of todos
+	todos.push(todoDescription);
+
+	// render new list of todos to document
+	renderTodos();
 
 	// empty input-field
 	newTodoDescriptionEl.value = "";
@@ -63,3 +82,6 @@ newTodoFormEl.addEventListener('submit', e => {
 newTodoFormEl.addEventListener('reset', e => {
 	document.querySelector('img').classList.remove('hide');
 });
+
+// render the initial todo-list
+renderTodos();
