@@ -23,6 +23,7 @@
 
 const newTodoButtonEl = document.querySelector('#new-todo-button');
 const todosEl = document.querySelector('#todos');
+const newTodoDescriptionEl = document.querySelector('#new-todo-description');
 
 // add click listener to the actual list, and check if the clicked target is
 // a list-item, and only then remove it
@@ -33,23 +34,12 @@ todosEl.addEventListener('click', e => {
 	}
 });
 
-/*
-// add click listener to each todo list-item
-// for deleting it
-document.querySelectorAll('li').forEach(todo => {
-	todo.addEventListener('click', e => {
-		e.target.remove();
-	});
-});
-*/
-
 // handle user clicking on "New Todo" button
 newTodoButtonEl.addEventListener('click', () => {
-	// prompt user for description of new todo
-	const todoDescription = prompt('What needs to be done?');
-	if (todoDescription === null) {
-		return;
-	} else if (todoDescription.length < 2) {
+	// get description of new todo from input-field
+	const todoDescription = newTodoDescriptionEl.value;
+
+	if (todoDescription.length < 2) {
 		alert("You need to enter more than that...");
 		return;
 	}
@@ -65,6 +55,9 @@ newTodoButtonEl.addEventListener('click', () => {
 
 	// add new todo list-item to list of todos
 	todosEl.append(newTodoEl);
+
+	// empty input-field
+	newTodoDescriptionEl.value = "";
 
 	// PROFIT! 💰
 });
