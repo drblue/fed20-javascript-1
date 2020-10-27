@@ -27,6 +27,12 @@ const todosEl = document.querySelector('#todos');
 newTodoButtonEl.addEventListener('click', () => {
 	// prompt user for description of new todo
 	const todoDescription = prompt('What needs to be done?');
+	if (todoDescription === null) {
+		return;
+	} else if (todoDescription.length < 2) {
+		alert("You need to enter more than that...");
+		return;
+	}
 
 	// create new todo list-item
 	const newTodoEl = document.createElement('li');
