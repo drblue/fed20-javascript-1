@@ -47,25 +47,8 @@ newTodoButtonEl.addEventListener('click', () => {
 		return;
 	}
 
-	// create new todo list-item
-	const newTodoEl = document.createElement('li');
-
-	// add class `todo` and `list-group-item` to new todo list-item
-	newTodoEl.classList.add('todo', 'list-group-item');
-
-	// set content of new todo list-item to whatever the user entered
-	newTodoEl.innerText = todoDescription + " ";
-
-	// create a button
-	const newTodoDeleteButtonEl = document.createElement('button');
-	newTodoDeleteButtonEl.classList.add('btn', 'btn-danger', 'btn-sm');
-	newTodoDeleteButtonEl.innerText = "X";
-
-	// add button to new todo list-item
-	newTodoEl.append(newTodoDeleteButtonEl);
-
-	// add new todo list-item to list of todos
-	todosEl.append(newTodoEl);
+	// create new todo list-item and add it to list of todos
+	todosEl.innerHTML += `<li class="todo list-group-item">${todoDescription} <button class="btn btn-danger btn-sm">X</button></li>`;
 
 	// empty input-field
 	newTodoDescriptionEl.value = "";
