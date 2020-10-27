@@ -1,0 +1,32 @@
+html
+	head
+		meta
+		meta
+		title
+		link
+		link
+	body
+		div.container
+			h1
+			hr
+			ul
+				li
+					a#link-1
+				li
+					a
+			hr
+			div.content
+				p // 1
+				p.error // 2
+					strong
+				ul
+					li
+					li
+			div.alert.alert-danger
+				span.secret
+			p // 3
+			hr
+			button
+			hr
+			img
+		script
