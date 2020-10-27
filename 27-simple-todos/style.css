@@ -1,0 +1,5 @@
+.todo.completed {
+	font-style: italic;
+	color: #888;
+	text-decoration: line-through;
+}

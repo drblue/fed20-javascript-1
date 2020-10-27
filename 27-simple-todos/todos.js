@@ -29,8 +29,11 @@ const newTodoDescriptionEl = document.querySelector('#new-todo-description');
 // a list-item, and only then remove it
 todosEl.addEventListener('click', e => {
 	if (e.target.tagName === "LI") {
-		// user clicked on a list-item, so remove it
-		e.target.remove();
+		// user clicked on a list-item, so toggle class `completed` on it
+		e.target.classList.toggle('completed');
+	} else if (e.target.tagName === "BUTTON") {
+		// user clicked on the big red X-button, so we self-destruct
+		e.target.parentElement.remove();
 	}
 });
 
@@ -47,11 +50,19 @@ newTodoButtonEl.addEventListener('click', () => {
 	// create new todo list-item
 	const newTodoEl = document.createElement('li');
 
-	// add class `list-group-item` to new todo list-item
-	newTodoEl.classList.add('list-group-item');
+	// add class `todo` and `list-group-item` to new todo list-item
+	newTodoEl.classList.add('todo', 'list-group-item');
 
 	// set content of new todo list-item to whatever the user entered
-	newTodoEl.innerText = todoDescription;
+	newTodoEl.innerText = todoDescription + " ";
+
+	// create a button
+	const newTodoDeleteButtonEl = document.createElement('button');
+	newTodoDeleteButtonEl.classList.add('btn', 'btn-danger', 'btn-sm');
+	newTodoDeleteButtonEl.innerText = "X";
+
+	// add button to new todo list-item
+	newTodoEl.append(newTodoDeleteButtonEl);
 
 	// add new todo list-item to list of todos
 	todosEl.append(newTodoEl);
