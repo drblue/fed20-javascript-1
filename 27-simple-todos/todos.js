@@ -121,6 +121,10 @@ newTodoFormEl.addEventListener('submit', e => {
 // handle user resetting the "New Todo" form
 newTodoFormEl.addEventListener('reset', e => {
 	document.querySelector('img').classList.remove('hide');
+
+	setTimeout(() => {
+		document.querySelector('img').classList.add('hide');
+	}, 3000);
 });
 
 // render the initial todo-list
