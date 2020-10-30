@@ -42,19 +42,36 @@ const todos = [
 
 const renderTodos = () => {
 	// empty HTML list of todos
-	let html = "";
+	todosEl.innerHTML = "";
 
 	// loop over each todo and create a list-item for each todo, and add them to the HTML list
 	todos.forEach(todo => {
-		let cssClasses = "todo list-group-item";
+		// create elements 💥
+		const todoEl = document.createElement('li');
+		const todoTitleEl = document.createElement('span');
+		const todoButtonEl = document.createElement('button');
+
+		// add css classes
+		todoEl.classList.add('todo', 'list-group-item');
+		todoTitleEl.classList.add('todo-title');
+		todoButtonEl.classList.add('btn', 'btn-danger', 'btn-sm');
+
+		// if todo is completed, add css-class `completed` to the list-item
 		if (todo.completed) {
-			cssClasses += " completed";
+			todoEl.classList.add('completed');
 		}
 
-		html += `<li class="${cssClasses}"><span class="todo-title">${todo.title}</span> <button class="btn btn-danger btn-sm">X</button></li>`;
-	});
+		// set content
+		todoTitleEl.innerText = todo.title;
+		todoButtonEl.innerText = "X";
 
-	todosEl.innerHTML = html;
+		// append span + button to list-item
+		todoEl.append(todoTitleEl); // span
+		todoEl.append(todoButtonEl); // button
+
+		// FINALLY append list-item to ul
+		todosEl.append(todoEl);
+	});
 }
 
 // add click listener to the actual list, and check if the clicked target is
