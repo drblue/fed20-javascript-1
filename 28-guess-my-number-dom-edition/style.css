@@ -1,0 +1,41 @@
+html {
+	font-size: 1.5em;
+}
+
+body {
+	color: #333;
+	font-family: 'Baskervville', monospace;
+	font-weight: 400;
+}
+
+#top {
+	display: flex;
+	justify-content: space-between;
+}
+
+#imma-cheat {
+	position: absolute;
+	bottom: 1rem;
+	right: 1.5rem;
+}
+
+#turnout {
+	display: flex;
+	justify-content: center;
+	margin-top: 1.5rem;
+}
+
+#turnout img {
+	transition: all 1s;
+	opacity: 0;
+}
+
+#turnout.correct img#correct {
+	opacity: 1;
+}
+#turnout.too-high img#too-high {
+	opacity: 1;
+}
+#turnout.too-low img#too-low {
+	opacity: 1;
+}

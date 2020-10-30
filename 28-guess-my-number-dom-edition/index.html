@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>Guess My Number</title>
+
+	<!-- Nice font -->
+	<link href="https://fonts.googleapis.com/css?family=Baskervville:400,400i&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- App styles -->
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-dark text-white">
+	<div id="app" class="container mt-3">
+		<div id="top">
+			<h1>Guess My Number ∞</h1>
+			<h2 id="guesses"></h2>
+		</div>
+
+		<div id="imma-cheat"></div>
+
+		<form class="form-inline mt-4" id="form-guess">
+			<label for="guess">I'ma guess y'a number is</label>
+			<input type="number" min="1" max="10" class="form-control ml-2" id="input-guess" placeholder="Enter a number">
+
+			<button class="btn btn-success ml-2" type="submit">Get lucky</button>
+			<button class="btn btn-danger ml-2" type="button" id="btn-giveup">Give up</button>
+		</form>
+
+		<div id="turnout">
+			<img src="assets/images/too-low.jpg" id="too-low">
+			<img src="assets/images/correct.jpg" id="correct">
+			<img src="assets/images/too-high.jpg" id="too-high">
+		</div>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>
