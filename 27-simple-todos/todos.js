@@ -26,30 +26,65 @@ const todosEl = document.querySelector('#todos');
 const newTodoDescriptionEl = document.querySelector('#new-todo-description');
 
 const todos = [
-	"Code",
-	"Sleep",
-	"Repeat"
+	{
+		title: "Code",
+		completed: false
+	},
+	{
+		title: "Sleep",
+		completed: true
+	},
+	{
+		title: "Repeat",
+		completed: true
+	}
 ];
 
 const renderTodos = () => {
 	// empty HTML list of todos
-	todosEl.innerHTML = "";
+	let html = "";
 
 	// loop over each todo and create a list-item for each todo, and add them to the HTML list
 	todos.forEach(todo => {
-		todosEl.innerHTML += `<li class="todo list-group-item">${todo} <button class="btn btn-danger btn-sm">X</button></li>`;
+		let cssClasses = "todo list-group-item";
+		if (todo.completed) {
+			cssClasses += " completed";
+		}
+
+		html += `<li class="${cssClasses}"><span class="todo-title">${todo.title}</span> <button class="btn btn-danger btn-sm">X</button></li>`;
 	});
+
+	todosEl.innerHTML = html;
 }
 
 // add click listener to the actual list, and check if the clicked target is
 // a list-item, and only then remove it
 todosEl.addEventListener('click', e => {
-	if (e.target.tagName === "LI") {
-		// user clicked on a list-item, so toggle class `completed` on it
-		e.target.classList.toggle('completed');
+	if (e.target.tagName === "SPAN") {
+		// user clicked on a todo title, so toggle its `completed` status
+		todos.forEach(todo => {
+			if (todo.title === e.target.innerText) {
+				// we found it! invert `completed` status
+				todo.completed = !todo.completed;
+			}
+		});
+
+		// render new todo-list
+		renderTodos();
+
 	} else if (e.target.tagName === "BUTTON") {
-		// user clicked on the big red X-button, so we self-destruct
-		e.target.parentElement.remove();
+		// user clicked on the big red X-button, so we need to find our sibling
+		const clickedTodoTitle = e.target.previousElementSibling.innerText;
+
+		todos.forEach((todo, index) => {
+			if (todo.title === clickedTodoTitle) {
+				// we found it! splice it!
+				todos.splice(index, 1);
+			}
+		});
+
+		// render new todo-list
+		renderTodos();
 	}
 });
 
@@ -67,7 +102,10 @@ newTodoFormEl.addEventListener('submit', e => {
 	}
 
 	// add todo to (array-)list of todos
-	todos.push(todoDescription);
+	todos.push({
+		title: todoDescription,
+		completed: false
+	});
 
 	// render new list of todos to document
 	renderTodos();
