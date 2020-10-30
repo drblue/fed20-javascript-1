@@ -46,10 +46,9 @@ const renderTodos = () => {
 
 	// loop over each todo and create a list-item for each todo, and add them to the HTML list
 	todos.forEach(todo => {
-		let cssClasses = "todo list-group-item";
-		if (todo.completed) {
-			cssClasses += " completed";
-		}
+		let cssClasses = (todo.completed)
+			? "todo list-group-item completed"
+			: "todo list-group-item incomplete";
 
 		html += `
 			<li class="${cssClasses}">

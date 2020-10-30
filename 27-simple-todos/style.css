@@ -9,6 +9,11 @@
 	text-decoration: line-through;
 }
 
+.todo.incomplete {
+	color: #a00;
+	font-weight: bold;
+}
+
 .hide {
 	display: none;
 }
