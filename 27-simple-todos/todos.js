@@ -78,8 +78,9 @@ todosEl.addEventListener('click', e => {
 		renderTodos();
 
 	} else if (e.target.tagName === "BUTTON") {
-		// user clicked on the big red X-button, so we need to find our sibling
-		const clickedTodoTitle = e.target.previousElementSibling.innerText;
+		// user clicked on the big red X-button, so we need to ask our parent
+		// to query for the element with the class `todo-title`
+		const clickedTodoTitle = e.target.parentElement.querySelector('.todo-title').innerText;
 
 		todos.forEach((todo, index) => {
 			if (todo.title === clickedTodoTitle) {
