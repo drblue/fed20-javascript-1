@@ -45,13 +45,13 @@ const renderTodos = () => {
 	let html = "";
 
 	// loop over each todo and create a list-item for each todo, and add them to the HTML list
-	todos.forEach(todo => {
+	todos.forEach((todo, index) => {
 		let cssClasses = (todo.completed)
 			? "todo list-group-item completed"
 			: "todo list-group-item incomplete";
 
 		html += `
-			<li class="${cssClasses}">
+			<li class="${cssClasses}" data-index="${index}">
 				<span class="todo-title">${todo.title}</span>
 				<button class="btn btn-danger btn-sm">X</button>
 			</li>
@@ -66,27 +66,24 @@ const renderTodos = () => {
 todosEl.addEventListener('click', e => {
 	if (e.target.tagName === "SPAN") {
 		// user clicked on a todo title, so toggle its `completed` status
-		todos.forEach(todo => {
-			if (todo.title === e.target.innerText) {
-				// we found it! invert `completed` status
-				todo.completed = !todo.completed;
-			}
-		});
+
+		// get index from parent `li`-element
+		const todoIndex = e.target.parentElement.dataset.index;
+
+		// get todo from todos-array
+		const todo = todos[todoIndex];
+
+		// invert its completed-status
+		todo.completed = !todo.completed;
 
 		// render new todo-list
 		renderTodos();
 
 	} else if (e.target.tagName === "BUTTON") {
 		// user clicked on the big red X-button, so we need to ask our parent
-		// to query for the element with the class `todo-title`
-		const clickedTodoTitle = e.target.parentElement.querySelector('.todo-title').innerText;
-
-		todos.forEach((todo, index) => {
-			if (todo.title === clickedTodoTitle) {
-				// we found it! splice it!
-				todos.splice(index, 1);
-			}
-		});
+		// for the index of the todo
+		const todoIndex = e.target.parentElement.dataset.index;
+		todos.splice(todoIndex, 1);
 
 		// render new todo-list
 		renderTodos();
