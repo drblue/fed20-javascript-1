@@ -129,3 +129,26 @@ newTodoFormEl.addEventListener('reset', e => {
 
 // render the initial todo-list
 renderTodos();
+
+// get a random delay for scaring the user
+const getRandomDelay = (max = 5000) => Math.ceil(Math.random() * max);
+
+const showGhost = () => {
+	document.querySelector('#boo').classList.add('scare');
+	setTimeout(() => {
+		hideGhost();
+		scareTheUser();
+	}, 500);
+}
+const hideGhost = () => {
+	document.querySelector('#boo').classList.remove('scare');
+}
+
+const scareTheUser = () => {
+	const delay = getRandomDelay();
+	console.log(`Scaring the user in ${delay} milliseconds... MO-HA-HA-HA`)
+	setTimeout(() => {
+		showGhost();
+	}, delay);
+}
+scareTheUser();
