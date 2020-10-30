@@ -46,6 +46,13 @@ const renderTodos = () => {
 
 	// loop over each todo and create a list-item for each todo, and add them to the HTML list
 	todos.forEach(todo => {
+		/**
+		 * <li class="todo list-group-item">
+		 *   <span class="todo-title"></span>
+		 *   <button class="btn btn-danger btn sm">X</button>
+		 * </li>
+		 */
+
 		// create elements 💥
 		const todoEl = document.createElement('li');
 		const todoTitleEl = document.createElement('span');
