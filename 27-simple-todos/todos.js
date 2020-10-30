@@ -42,43 +42,24 @@ const todos = [
 
 const renderTodos = () => {
 	// empty HTML list of todos
-	todosEl.innerHTML = "";
+	let html = "";
 
 	// loop over each todo and create a list-item for each todo, and add them to the HTML list
 	todos.forEach(todo => {
-		/**
-		 * <li class="todo list-group-item">
-		 *   <span class="todo-title"></span>
-		 *   <button class="btn btn-danger btn sm">X</button>
-		 * </li>
-		 */
-
-		// create elements 💥
-		const todoEl = document.createElement('li');
-		const todoTitleEl = document.createElement('span');
-		const todoButtonEl = document.createElement('button');
-
-		// add css classes
-		todoEl.classList.add('todo', 'list-group-item');
-		todoTitleEl.classList.add('todo-title');
-		todoButtonEl.classList.add('btn', 'btn-danger', 'btn-sm');
-
-		// if todo is completed, add css-class `completed` to the list-item
+		let cssClasses = "todo list-group-item";
 		if (todo.completed) {
-			todoEl.classList.add('completed');
+			cssClasses += " completed";
 		}
 
-		// set content
-		todoTitleEl.innerText = todo.title;
-		todoButtonEl.innerText = "X";
-
-		// append span + button to list-item
-		todoEl.append(todoTitleEl); // span
-		todoEl.append(todoButtonEl); // button
-
-		// FINALLY append list-item to ul
-		todosEl.append(todoEl);
+		html += `
+			<li class="${cssClasses}">
+				<span class="todo-title">${todo.title}</span>
+				<button class="btn btn-danger btn-sm">X</button>
+			</li>
+		`;
 	});
+
+	todosEl.innerHTML = html;
 }
 
 // add click listener to the actual list, and check if the clicked target is
@@ -118,7 +99,7 @@ newTodoFormEl.addEventListener('submit', e => {
 	e.preventDefault();
 
 	// get description of new todo from input-field
-	const todoDescription = newTodoDescriptionEl.value;
+	const todoDescription = newTodoDescriptionEl.value.replace(/(<([^>]+)>)/ig, '');
 
 	if (todoDescription.length < 2) {
 		alert("You need to enter more than that...");
