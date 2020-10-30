@@ -24,6 +24,7 @@
 const newTodoFormEl = document.querySelector('#new-todo-form');
 const todosEl = document.querySelector('#todos');
 const newTodoDescriptionEl = document.querySelector('#new-todo-description');
+const todoCounterEl = document.querySelector('#todo-count');
 
 const todos = [
 	{
@@ -87,6 +88,9 @@ todosEl.addEventListener('click', e => {
 
 		// render new todo-list
 		renderTodos();
+
+		// make user annoyed by initiating countdown
+		startTodoCounter();
 	}
 });
 
@@ -111,6 +115,9 @@ newTodoFormEl.addEventListener('submit', e => {
 
 	// render new list of todos to document
 	renderTodos();
+
+	// make user annoyed by initiating countdown
+	startTodoCounter();
 
 	// empty input-field
 	newTodoDescriptionEl.value = "";
@@ -151,4 +158,16 @@ const scareTheUser = () => {
 		showGhost();
 	}, delay);
 }
-scareTheUser();
+// scareTheUser();
+
+const startTodoCounter = () => {
+	let counter = 88;
+	const counterIntervalId = setInterval(() => {
+		counter--;
+		todoCounterEl.innerText = counter;
+		if (counter <= todos.length) {
+			clearInterval(counterIntervalId);
+		}
+	}, 15);
+}
+startTodoCounter();
