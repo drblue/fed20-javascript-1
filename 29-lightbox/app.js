@@ -26,3 +26,25 @@ via JavaScript, lägg inte till en caption i själva bildfilen :P.
 const lightboxWrapper = document.querySelector('#lightbox-wrapper');
 const lightboxImg = document.querySelector('#lightbox-wrapper img');
 const lightboxCaption = document.querySelector('#lightbox-wrapper .caption');
+
+// 1a. Hämta ut alla `a.photo`, loopa över dem och lägg till en
+// click-EventListener för varje element.
+document.querySelectorAll('a.photo').forEach(link => {
+	link.addEventListener('click', e => {
+		// stop browser from following the link and hence leaving the page
+		e.preventDefault();
+
+		// console.log("you clicked on:", e.target);
+		// console.log("that elements parent is:", e.target.parentElement);
+		// console.log("the parent's link is:", e.target.parentElement.href);
+
+		// retrieve URL to large image from parent element's href-attribute
+		const large_img = e.target.parentElement.href;
+
+		// set URL to large image on lightbox's image-element's src-attribute
+		lightboxImg.setAttribute('src', large_img);
+
+		// finally, add class `show` to `#lightbox-wrapper`
+		lightboxWrapper.classList.add('show');
+	});
+});
