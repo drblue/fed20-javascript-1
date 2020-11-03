@@ -47,6 +47,10 @@ a.photo {
 	max-height: 95vh;
 }
 
+#lightbox {
+	margin-bottom: 2.5vh;
+}
+
 #lightbox .caption {
 	font-size: 0.8rem;
 	font-style: italic;

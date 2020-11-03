@@ -63,6 +63,10 @@ document.querySelector('.photos').addEventListener('click', e => {
 		// och sätt på `#lightbox-wrapper img` src-attribut.
 		lightboxImg.setAttribute('src', e.target.parentElement.href);
 
+		// 5. 🌟 Om du kan fixa så man kan ha en caption på varje bild och den visas. Naturligtvis
+		// via JavaScript, lägg inte till en caption i själva bildfilen :P.
+		lightboxCaption.innerText = e.target.parentElement.dataset.caption;
+
 		// 3. Lägg till klassen `show` på `#lightbox-wrapper`.
 		lightboxWrapper.classList.add('show');
 	}
@@ -77,11 +81,3 @@ lightboxWrapper.addEventListener('click', () => {
 	lightboxImg.setAttribute('src', '');
 });
 
-// 2. Hämta ut IMG's förälder (A-tagg) href och sätt på `#lightbox-wrapper img` src-attribut.
-
-// 3. Lägg till klassen `show` på `#lightbox-wrapper`.
-
-// 4. (Lägg till en click-EventListener på `#lightbox-wrapper` som tar bort `show`-klassen.)
-
-// 5. 🌟 Om du kan fixa så man kan ha en caption på varje bild och den visas. Naturligtvis
-// via JavaScript, lägg inte till en caption i själva bildfilen :P.
