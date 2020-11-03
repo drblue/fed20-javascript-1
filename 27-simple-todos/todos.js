@@ -47,12 +47,8 @@ const renderTodos = () => {
 
 	// loop over each todo and create a list-item for each todo, and add them to the HTML list
 	todos.forEach((todo, index) => {
-		let cssClasses = (todo.completed)
-			? "todo list-group-item completed"
-			: "todo list-group-item incomplete";
-
 		html += `
-			<li class="${cssClasses}" data-index="${index}">
+			<li class="todo list-group-item ${todo.completed ? 'completed' : 'incomplete'}" data-index="${index}">
 				<span class="todo-title">${todo.title}</span>
 				<button class="btn btn-danger btn-sm">X</button>
 			</li>
@@ -69,7 +65,7 @@ todosEl.addEventListener('click', e => {
 		// user clicked on a todo title, so toggle its `completed` status
 
 		// get index from parent `li`-element
-		const todoIndex = e.target.parentElement.dataset.index;
+		const todoIndex = e.target.parentElement.dataset.index; // `<li data-index>`
 
 		// get todo from todos-array
 		const todo = todos[todoIndex];
@@ -127,10 +123,10 @@ newTodoFormEl.addEventListener('submit', e => {
 
 // handle user resetting the "New Todo" form
 newTodoFormEl.addEventListener('reset', e => {
-	document.querySelector('img').classList.remove('hide');
+	document.querySelector('#it-crowd-reset').classList.add('show');
 
 	setTimeout(() => {
-		document.querySelector('img').classList.add('hide');
+		document.querySelector('#it-crowd-reset').classList.remove('show');
 	}, 3000);
 });
 
