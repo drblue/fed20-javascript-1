@@ -34,11 +34,17 @@ a.photo {
 	bottom: 0;
 	background-color: #000000cc;
 	display: none;
+	justify-content: center;
 	align-items: center;
 	padding: 2rem 3rem;
 }
 #lightbox-wrapper.show {
 	display: flex;
+}
+
+#lightbox,
+#lightbox img {
+	max-height: 95vh;
 }
 
 #lightbox .caption {
