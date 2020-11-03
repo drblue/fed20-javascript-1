@@ -68,6 +68,14 @@ document.querySelector('.photos').addEventListener('click', e => {
 	}
 });
 
+// 4. (Lägg till en click-EventListener på `#lightbox-wrapper` som tar bort `show`-klassen.)
+lightboxWrapper.addEventListener('click', () => {
+	// hey lightboxWrapper, remove that `show` class
+	lightboxWrapper.classList.remove('show');
+
+	// empty lightboxImg src-attribute
+	lightboxImg.setAttribute('src', '');
+});
 
 // 2. Hämta ut IMG's förälder (A-tagg) href och sätt på `#lightbox-wrapper img` src-attribut.
 
