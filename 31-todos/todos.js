@@ -3,6 +3,22 @@
  * Lesson: 10
  * Link: https://fed20.thehiveresistance.com/javascript-dag-10-array-sort-och-filter/
  *
+ * Steg 1
+ * Lägg till ett ID på varje TODO-objekt.
+ *
+ * Steg 2
+ * Rendera ut varje TODO's ID till DOM istället för dess array-index.
+ *
+ * Steg 3
+ * Uppdatera click-eventhandler:n så att den hämtar ID från förälderns
+ * data-attribut istället för index. Använd sedan detta ID för att hitta rätt
+ * TODO i `todos`-array:en.
+ *
+ * Steg 4 (extra utmaning)
+ * När man skapar en ny TODO, se om du kan få till en funktion som hämtar ut
+ * det högsta ID som finns och tar +1 på det, och använder det talet som den
+ * nya TODO:ns ID.
+ *
  */
 
 const newTodoFormEl = document.querySelector('#new-todo-form');
@@ -12,14 +28,17 @@ const todoCounterEl = document.querySelector('#todo-count');
 
 const todos = [
 	{
+		id: 1,
 		title: "Code",
-		completed: false
-	},
-	{
-		title: "Sleep",
 		completed: true
 	},
 	{
+		id: 42,
+		title: "Sleep",
+		completed: false
+	},
+	{
+		id: 3,
 		title: "Repeat",
 		completed: true
 	}
@@ -33,9 +52,9 @@ const getHtmlForTodoList = todoList => {
 	let html = "";
 
 	// loop over list of todos, and for each todo append the HTML to the temporary variable
-	todoList.forEach((todo, index) => {
+	todoList.forEach(todo => {
 		html += `
-			<li class="todo list-group-item ${todo.completed ? 'completed' : 'incomplete'}" data-index="${index}">
+			<li class="todo list-group-item ${todo.completed ? 'completed' : 'incomplete'}" data-id="${todo.id}">
 				<span class="todo-title">${todo.title}</span>
 				<button class="btn btn-danger btn-sm">X</button>
 			</li>
@@ -65,10 +84,12 @@ document.querySelectorAll('.todos').forEach(todolist => {
 			// user clicked on a todo title, so toggle its `completed` status
 
 			// get index from parent `li`-element
-			const todoIndex = e.target.parentElement.dataset.index; // `<li data-index>`
+			const todoId = e.target.parentElement.dataset.id; // `<li data-id>`
 
-			// get todo from todos-array
-			const todo = todos[todoIndex];
+			// FIND todo with `id` of `todoId` from `todos`-array
+			const todo = todos.find(todo => {
+				return (todo.id == todoId);
+			});
 
 			// invert its completed-status
 			todo.completed = !todo.completed;
@@ -79,7 +100,9 @@ document.querySelectorAll('.todos').forEach(todolist => {
 		} else if (e.target.tagName === "BUTTON") {
 			// user clicked on the big red X-button, so we need to ask our parent
 			// for the index of the todo
-			const todoIndex = e.target.parentElement.dataset.index;
+			const targetTodoId = e.target.parentElement.dataset.id;
+			const todoIndex = todos.findIndex(todo => todo.id == targetTodoId);
+
 			todos.splice(todoIndex, 1);
 
 			// render new todo-list
@@ -101,8 +124,15 @@ newTodoFormEl.addEventListener('submit', e => {
 		return;
 	}
 
+	const max = todos.reduce((maxId, todo) => {
+		return todo.id > maxId
+			? todo.id
+			: maxId;
+	}, 0);
+
 	// add todo to (array-)list of todos
 	todos.push({
+		id: max + 1,
 		title: todoDescription,
 		completed: false
 	});
