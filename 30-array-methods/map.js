@@ -32,7 +32,7 @@ const year3names = friends
 	.filter(friend => friend.year === 3)
 	.map(friend => friend.name);
 
-console.log("year3 names:", year3names);
+// console.log("year3 names:", year3names);
 
 
 // const names = friends.map(friend => {
@@ -76,16 +76,10 @@ const salePrices = products.map(product => {
 });
 // console.log("salePrices:", salePrices);
 
-
-
-
-
-
-
 const students = [
 	{
 		name: "Johan",
-		points: 1337,
+		points: 133,
 	},
 	{
 		name: "Peter",
