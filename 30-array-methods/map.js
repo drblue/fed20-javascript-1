@@ -32,7 +32,48 @@ const names = friends.map(friend => {
 	return friend.name;
 });
 
-console.log(names);
+// console.log(names);
+
+/**
+ * we can also transform the values
+ */
+const products = [
+	{
+		name: "Corrosive bowl",
+		in_stock: 321,
+		price: 0.99,
+	},
+	{
+		name: "Cotton spice rack",
+		in_stock: 2,
+		price: 149.99,
+	},
+	{
+		name: "Inside-out Oreo cookies",
+		in_stock: 18,
+		price: 2.49,
+	},
+	{
+		name: "The uncomfortable broom",
+		in_stock: 1,
+		price: 28.65,
+	},
+];
+
+const salePrices = products.map(product => {
+	return {
+		name: product.name,
+		price: product.price / 2,
+		on_sale: true,
+		ordinary_price: product.price
+	};
+});
+console.log("salePrices:", salePrices);
+
+
+
+
+
 
 
 const students = [
