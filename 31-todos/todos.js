@@ -41,6 +41,7 @@ const renderTodos = () => {
 
 	todosEl.innerHTML = html;
 }
+renderTodos();
 
 // add click listener to the actual list, and check if the clicked target is
 // a list-item, and only then remove it
