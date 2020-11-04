@@ -25,15 +25,15 @@ const todos = [
 	}
 ];
 
-const renderTodos = () => {
-	// create variable to store temporary HTML, before passing it to the DOM
+// Get HTML for TODO List
+// Receives an array of TODOs and
+// Returns a string of HTML
+const getHtmlForTodoList = todoList => {
+	// create variable to store temporary HTML, before returning it
 	let html = "";
 
-	// loop over todos and get every todo which is NOT YET completed
-	const incompleteTodos = todos.filter(todo => !todo.completed);
-
-	// loop over each INCOMPLETE todo and create a list-item for each todo
-	incompleteTodos.forEach((todo, index) => {
+	// loop over list of todos, and for each todo append the HTML to the temporary variable
+	todoList.forEach((todo, index) => {
 		html += `
 			<li class="todo list-group-item ${todo.completed ? 'completed' : 'incomplete'}" data-index="${index}">
 				<span class="todo-title">${todo.title}</span>
@@ -42,27 +42,18 @@ const renderTodos = () => {
 		`;
 	});
 
-	// output resulting HTML of INCOMPLETE todos to DOM
-	document.querySelector('#todos').innerHTML = html;
+	// return variable with HTML
+	return html;
+}
 
-	// empty variable of temporary HTML
-	html = "";
-
-	// loop over todos and get every todo which IS completed
+const renderTodos = () => {
+	// filter todos
+	const incompleteTodos = todos.filter(todo => !todo.completed);
 	const completedTodos = todos.filter(todo => todo.completed);
 
-	// loop over each COMPLETED todo and create a list-item for each todo
-	completedTodos.forEach((todo, index) => {
-		html += `
-			<li class="todo list-group-item ${todo.completed ? 'completed' : 'incomplete'}" data-index="${index}">
-				<span class="todo-title">${todo.title}</span>
-				<button class="btn btn-danger btn-sm">X</button>
-			</li>
-		`;
-	});
-
-	// output resulting HTML of COMPLETED todos to DOM
-	document.querySelector('#completed-todos').innerHTML = html;
+	// output todos to DOM
+	document.querySelector('#todos').innerHTML = getHtmlForTodoList(incompleteTodos);
+	document.querySelector('#completed-todos').innerHTML = getHtmlForTodoList(completedTodos);
 }
 renderTodos();
 
