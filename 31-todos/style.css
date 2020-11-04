@@ -1,0 +1,28 @@
+.todo {
+	display: flex;
+	justify-content: space-between;
+}
+
+.todo.completed span {
+	font-style: italic;
+	color: #888;
+	text-decoration: line-through;
+}
+
+.todo.incomplete span {
+	color: #a00;
+	font-weight: bold;
+}
+
+.hide {
+	display: none;
+}
+
+#it-crowd-reset {
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+#it-crowd-reset.show {
+	opacity: 1;
+}
