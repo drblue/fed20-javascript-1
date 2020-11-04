@@ -28,10 +28,16 @@ friends.forEach(friend => {
 	names.push(friend.name);
 });
 */
-const names = friends.map(friend => {
-	return friend.name;
-});
+const year3names = friends
+	.filter(friend => friend.year === 3)
+	.map(friend => friend.name);
 
+console.log("year3 names:", year3names);
+
+
+// const names = friends.map(friend => {
+// 	return friend.name;
+// }).sort();
 // console.log(names);
 
 /**
@@ -68,7 +74,7 @@ const salePrices = products.map(product => {
 		ordinary_price: product.price
 	};
 });
-console.log("salePrices:", salePrices);
+// console.log("salePrices:", salePrices);
 
 
 
