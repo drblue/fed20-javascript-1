@@ -51,7 +51,7 @@ const getHtmlForTodoList = todoList => {
 	// loop over list of todos, and transform (map) each todo into an HTML string
 	const output = todoList.map(todo => {
 		return `
-			<li class="todo list-group-item ${todo.completed ? 'completed' : 'incomplete'}" data-id="${todo.id}">
+			<li class="todo list-group-item bg-dark text-white ${todo.completed ? 'completed' : 'incomplete'}" data-id="${todo.id}">
 				<span class="todo-title">${todo.title}</span>
 				<button class="btn btn-danger btn-sm">X</button>
 			</li>
