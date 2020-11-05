@@ -48,12 +48,9 @@ const todos = [
 // Receives an array of TODOs and
 // Returns a string of HTML
 const getHtmlForTodoList = todoList => {
-	// create variable to store temporary HTML, before returning it
-	let html = "";
-
-	// loop over list of todos, and for each todo append the HTML to the temporary variable
-	todoList.forEach(todo => {
-		html += `
+	// loop over list of todos, and transform (map) each todo into an HTML string
+	const output = todoList.map(todo => {
+		return `
 			<li class="todo list-group-item ${todo.completed ? 'completed' : 'incomplete'}" data-id="${todo.id}">
 				<span class="todo-title">${todo.title}</span>
 				<button class="btn btn-danger btn-sm">X</button>
@@ -62,7 +59,7 @@ const getHtmlForTodoList = todoList => {
 	});
 
 	// return variable with HTML
-	return html;
+	return output.join('');
 }
 
 const renderTodos = () => {
