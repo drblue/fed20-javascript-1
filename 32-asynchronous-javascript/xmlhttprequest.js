@@ -15,7 +15,17 @@ request.addEventListener('readystatechange', () => {
 
 		if (request.status === 200) {
 			// we're successful!
-			console.log("Request returned successful!", request.responseText);
+			console.log("Request returned successful!");
+
+			// parse responseText into JavaScript array of objects
+			const response = JSON.parse(request.responseText);
+
+			// loop over response and console.log every title
+			response.forEach(item => {
+				// console.log(`Post title: "${item.title}"`);
+				document.querySelector('#posts').innerHTML += `<li>${item.title}</li>`
+			});
+
 		} else {
 			// something went wrong
 			// request returned battle-damanged
@@ -25,7 +35,7 @@ request.addEventListener('readystatechange', () => {
 });
 
 // open connection to URL
-request.open('GET', 'https://qwerwertretertetrertte.com');
+request.open('GET', 'https://jsonplaceholder.typicode.com/posts');
 
 // fire away request
 request.send();
