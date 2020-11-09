@@ -14,10 +14,11 @@ const getPosts = (callback) => {
 				const response = JSON.parse(request.responseText);
 
 				// send response to callback
-				callback(response);
+				callback(undefined, response);
 
 			} else {
 				console.log("Request was unsuccessful 🥺");
+				callback(request.status);
 			}
 		}
 	});
@@ -26,17 +27,13 @@ const getPosts = (callback) => {
 	request.send();
 }
 
-const renderPostsToHTML = (posts) => {
-	posts.forEach(item => {
-		document.querySelector('#posts').innerHTML += `<li>${item.title}</li>`
-	});
-}
+getPosts((err, posts) => {
+	if (err) {
+		document.querySelector('#posts').innerHTML = `<li>Something went wrong! Error code ${err}</li>`;
 
-const consoleLogPostTitles = (posts) => {
-	posts.forEach(item => {
-		console.log(item.title);
-	});
-}
-
-getPosts(renderPostsToHTML);
-getPosts(consoleLogPostTitles);
+	} else {
+		posts.forEach(item => {
+			document.querySelector('#posts').innerHTML += `<li>${item.title}</li>`
+		});
+	}
+});
