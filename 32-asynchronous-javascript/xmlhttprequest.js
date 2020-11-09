@@ -25,9 +25,6 @@ request.addEventListener('readystatechange', () => {
 request.open('GET', 'https://jsonplaceholder.typicode.com/posts');
 request.send();
 
-console.log("Request sent...");
-
-
 /**
  * GET USERS
  */
