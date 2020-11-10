@@ -62,11 +62,25 @@ const getJSON = url => {
 
 console.log("Requesting 🐾...");
 
-getJSON('pets/dogs.json').then(dogs => {
+// Promise Chaining
+getJSON('pets/dogs.json')
+.then(dogs => {
 	console.log("Got dogs!", dogs);
+
+	// get dem damn cats too
+	return getJSON('pets/cats.json');
+})
+.then(cats => {
+	console.log("Got cats!", cats);
+
+	return getJSON('pets/birds.json');
+})
+.then(birds => {
+	console.log("Got dem birds", birds);
+
 })
 .catch(err => {
-	console.error("Who let the dogs out?", err);
+	console.error("Who let the pets out?", err);
 });
 
 console.log("We've been promised puppies, lets see...");
