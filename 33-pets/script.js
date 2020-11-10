@@ -29,10 +29,9 @@ getJSON('pets/dogs.json', (err, dogs) => {
 		document.querySelector('#errors').innerHTML += `<div class="alert alert-warning">WHO LET THE DOGS OUT?! ERROR CODE ${err}! 🐶</div>`;
 
 	} else {
-		const htmlDogs = dogs.map(dog => {
-			return `<li>${dog.name} is ${dog.age} years old.</li>`;
-		});
-
-		document.querySelector('#dogs').innerHTML = htmlDogs.join('');
+		document.querySelector('#dogs').innerHTML =
+			dogs
+				.map(dog => `<li>${dog.name} is ${dog.age} years old.</li>`)
+				.join('');
 	}
 });
