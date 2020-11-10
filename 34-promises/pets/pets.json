@@ -1,0 +1,17 @@
+[
+	{
+		"id": "cats",
+		"type": "Cats",
+		"url": "pets/cats.json"
+	},
+	{
+		"id": "dogs",
+		"type": "Dogs",
+		"url": "pets/dogs.json"
+	},
+	{
+		"id": "birds",
+		"type": "Birds",
+		"url": "pets/birds.json"
+	}
+]
