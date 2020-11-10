@@ -9,7 +9,7 @@
  *
  */
 
-const getPosts = (callback) => {
+const getPosts = (url, callback) => {
 	const request = new XMLHttpRequest();
 
 	request.addEventListener('readystatechange', () => {
@@ -27,11 +27,11 @@ const getPosts = (callback) => {
 		}
 	});
 
-	request.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+	request.open('GET', url);
 	request.send();
 }
 
-getPosts((err, posts) => {
+getPosts('https://jsonplaceholder.typicode.com/posts', (err, posts) => {
 	if (err) {
 		document.querySelector('#posts').innerHTML = `<li>Something went wrong! Error code ${err}</li>`;
 
