@@ -9,7 +9,7 @@
  *
  */
 
-const getPosts = (url, callback) => {
+const getJSON = (url, callback) => {
 	const request = new XMLHttpRequest();
 
 	request.addEventListener('readystatechange', () => {
@@ -31,7 +31,7 @@ const getPosts = (url, callback) => {
 	request.send();
 }
 
-getPosts('https://jsonplaceholder.typicode.com/posts', (err, posts) => {
+getJSON('https://jsonplaceholder.typicode.com/posts', (err, posts) => {
 	if (err) {
 		document.querySelector('#posts').innerHTML = `<li>Something went wrong! Error code ${err}</li>`;
 
@@ -41,3 +41,15 @@ getPosts('https://jsonplaceholder.typicode.com/posts', (err, posts) => {
 		});
 	}
 });
+
+getJSON('https://jsonplaceholder.typicode.com/users', (err, users) => {
+	if (err) {
+		document.querySelector('#users').innerHTML = `<li>Something went wrong! Error code ${err}</li>`;
+
+	} else {
+		users.forEach(item => {
+			document.querySelector('#users').innerHTML += `<li>${item.name}</li>`
+		});
+	}
+});
+
