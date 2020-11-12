@@ -19,8 +19,17 @@ fetch('pets/dogs.json')
 });
 */
 
-fetch('https://swapi.dev/api/people/')
-.then(res => res.json())
+fetch('https://swapi.dev/api/darkside/')
+.then(res => {
+	if (!res.ok) {
+		// break promise since response was not OK
+		// (will be caught below at line 55 using the .catch() method)
+		throw new Error(`Response was <code>${res.status} ${res.statusText}</code>`);
+	}
+
+	// all ok, convert response-body from JSON
+	return res.json();
+})
 .then(data => {
 	// use data
 	const peopleCards = data.results.map(person => {
@@ -43,5 +52,5 @@ fetch('https://swapi.dev/api/people/')
 	document.querySelector('#output').innerHTML += `<div class="row">${peopleCards}</div>`;
 })
 .catch(err => {
-	document.querySelector('#errors').innerHTML += `<div class="alert alert-warning">Something went wrong: ${err}</div>`
+	document.querySelector('#errors').innerHTML += `<div class="alert alert-warning">${err}</div>`
 });
