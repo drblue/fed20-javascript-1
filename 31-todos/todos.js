@@ -26,21 +26,28 @@ const todosEl = document.querySelector('#todos');
 const newTodoDescriptionEl = document.querySelector('#new-todo-description');
 const todoCounterEl = document.querySelector('#todo-count');
 
+const toggleCompleted = function() {
+	this.completed = !this.completed;
+}
+
 const todos = [
 	{
 		id: 1,
 		title: "Code",
-		completed: true
+		completed: true,
+		toggleCompleted: toggleCompleted,
 	},
 	{
 		id: 42,
 		title: "Sleep",
-		completed: false
+		completed: false,
+		toggleCompleted: toggleCompleted,
 	},
 	{
 		id: 3,
 		title: "Repeat",
-		completed: true
+		completed: true,
+		toggleCompleted: toggleCompleted,
 	}
 ];
 
@@ -89,7 +96,7 @@ document.querySelectorAll('.todos').forEach(todolist => {
 			});
 
 			// invert its completed-status
-			todo.completed = !todo.completed;
+			todo.toggleCompleted();
 
 			// render new todo-list
 			renderTodos();
@@ -131,7 +138,8 @@ newTodoFormEl.addEventListener('submit', e => {
 	todos.push({
 		id: max + 1,
 		title: todoDescription,
-		completed: false
+		completed: false,
+		toggleCompleted: toggleCompleted
 	});
 
 	// render new list of todos to document

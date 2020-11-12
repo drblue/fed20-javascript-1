@@ -3,6 +3,10 @@
 	justify-content: space-between;
 }
 
+.todo span {
+	cursor: pointer;
+}
+
 .todo.completed span {
 	font-style: italic;
 	color: #888;
@@ -10,7 +14,7 @@
 }
 
 .todo.incomplete span {
-	color: #a00;
+	color: #dc3545;
 	font-weight: bold;
 }
 
